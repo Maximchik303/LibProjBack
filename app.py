@@ -348,16 +348,6 @@ def edit_book_admin(book_id):
     if active_borrows:
         return jsonify({'message': 'Cannot edit book with active borrows!'}), 400
     
-    # Assuming you have fields in your Book model like name, author, etc.
-    book.name = data.get('name', book.name)
-    book.author = data.get('author', book.author)
-    book.disabled = data.get('disabled', book.disabled)
-    
-    db.session.commit()
-    
-    return jsonify({'message': 'Book updated successfully'})
-
-    
     # Update book details if provided
     book.name = data.get('name', book.name)
     book.author = data.get('author', book.author)
